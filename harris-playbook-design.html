@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Josh Harris Playbook</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&family=Playfair+Display:ital@1&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 60px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #1e3a5f;
+            font-size: 1.3em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: #5a6c7d;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            color: white;
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero .meta {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .meta-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+        
+        /* Content Section */
+        .section {
+            padding: 60px;
+        }
+        
+        .section-header {
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+        }
+        
+        .section-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        .section-header p {
+            font-size: 1.1em;
+            color: #5a6c7d;
+            line-height: 1.8;
+        }
+        
+        /* Quick Reference Box */
+        .quick-ref {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 5px solid #ff6b35;
+            padding: 40px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+        }
+        
+        .quick-ref h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+        }
+        
+        .quick-ref ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .quick-ref li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .quick-ref li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+        }
+        
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            border-left: 5px solid #ffa94d;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 6em;
+            color: #ffa94d;
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+        }
+        
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            font-style: italic;
+            color: #2c3e50;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Principle Card */
+        .principle-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a5f 0%, #ff6b35 100%);
+        }
+        
+        .principle-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .principle-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+        
+        .principle-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: #1e3a5f;
+            font-weight: 700;
+        }
+        
+        .principle-subtitle {
+            background: #ff6b35;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        
+        .principle-content h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1e3a5f;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .principle-content p {
+            color: #5a6c7d;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .principle-content ul {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        .principle-content li {
+            color: #5a6c7d;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .action-step {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4ebf2 100%);
+            border-left: 4px solid #1e3a5f;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .action-step strong {
+            color: #1e3a5f;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #ff6b35;
+        }
+        
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 800;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1em;
+            color: #5a6c7d;
+            font-weight: 600;
+        }
+        
+        /* Framework Section */
+        .framework-box {
+            background: white;
+            border: 2px solid #1e3a5f;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+        }
+        
+        .framework-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .phase-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ff6b35;
+        }
+        
+        .phase-title {
+            font-family: 'Montserrat', sans-serif;
+            color: #1e3a5f;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        /* Checklist */
+        .checklist {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #1e3a5f;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .toc h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+        }
+        
+        .toc-item {
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .toc-item:hover {
+            background: #1e3a5f;
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        .toc-number {
+            font-weight: 700;
+            color: #ff6b35;
+            margin-right: 15px;
+        }
+        
+        .toc-item:hover .toc-number {
+            color: #ffa94d;
+        }
+        
+        /* Footer CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #2c5282 0%, #1e3a5f 100%);
+            color: white;
+            padding: 60px;
+            text-align: center;
+        }
+        
+        .cta-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero, .section, .nav {
+                padding: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .principle-title {
+                font-size: 1.5em;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media print {
+            .nav {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <div class="nav">
+            <div class="nav-title">THE JOSH HARRIS PLAYBOOK</div>
+            <div class="nav-links">
+                <a href="#principles" class="nav-link">12 Principles</a>
+                <a href="#implementation" class="nav-link">Implementation</a>
+                <a href="#resources" class="nav-link">Resources</a>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>THE JOSH HARRIS PLAYBOOK</h1>
+            <div class="subtitle">Building Cultures of Excellence: 12 Principles for Leaders</div>
+            <div class="meta">
+                <div class="meta-item">
+                    <div class="meta-icon">🎙️</div>
+                    <div>
+                        <div style="font-weight: 600;">Source</div>
+                        <div style="opacity: 0.8; font-size: 0.9em;">Inside the Strategy Room Podcast (McKinsey) | June 2025</div>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-icon">👤</div>
+                    <div>
+                        <div style="font-weight: 600;">Josh Harris</div>
+                        <div style="opacity: 0.8; font-size: 0.9em;">Founder, 26North ($30B in 3 years) | Cofounder, Apollo Global Management</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- One-Page Quick Reference -->
+        <div class="section">
+            <div class="section-header">
+                <h2>ONE-PAGE QUICK REFERENCE</h2>
+            </div>
+            
+            <div class="quick-ref">
+                <h3>WHO IS JOSH HARRIS?</h3>
+                <ul>
+                    <li><strong>Apollo Global Management:</strong> Cofounder of one of world's largest asset managers</li>
+                    <li><strong>26North:</strong> Started at age 55, grew to $30B AUM with 140 employees in 3 years</li>
+                    <li><strong>Sports Portfolio:</strong> Washington Commanders, Philadelphia 76ers, New Jersey Devils, Crystal Palace FC</li>
+                    <li><strong>Core Expertise:</strong> Building high-performance cultures across finance and sports</li>
+                </ul>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    Culture and people eat strategy for breakfast, particularly in the investment world and in sports.
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h3>THE CORE INSIGHT</h3>
+                <p>Excellence is portable when built on <strong>culture, people, and values</strong> rather than industry-specific tactics.</p>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3>THE 12 PRINCIPLES</h3>
+                <div class="toc-item">
+                    <span><span class="toc-number">1</span> REINVENT THROUGH PURPOSE</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">2</span> EVOLVE FROM DOER TO LEADER</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">3</span> PRACTICE SERVANT LEADERSHIP</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">4</span> ALIGN INCENTIVES WITH OUTCOMES</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">5</span> HIRE FOR RESILIENCE</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">6</span> MANAGE YOURSELF OUT OF EVERY JOB</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">7</span> PROTECT YOUR FOCUS</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">8</span> BUILD COMMUNITY, NOT JUST TEAMS</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">9</span> PRACTICE STEWARDSHIP OVER OWNERSHIP</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">10</span> INVEST IN THE UNDERVALUED</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">11</span> COMPOUND EARLY, HARVEST LATER</span>
+                </div>
+                <div class="toc-item">
+                    <span><span class="toc-number">12</span> WORK FROM FULFILLMENT</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Principle 1 -->
+        <div class="section" id="principles">
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">1</div>
+                    <div class="principle-title">REINVENT THROUGH PURPOSE</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Great leaders reinvent themselves through purpose and impact, not comfort.</p>
+                    
+                    <h4>Harris's Story:</h4>
+                    <p>Started 26North at 55 after financial success to maximize positive impact using his "secret sauce" investing and building excellent organizations.</p>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>What would you do if financial success was guaranteed? That's your purpose</li>
+                        <li>Late career doesn't mean final chapter—it means experience + wisdom + resources</li>
+                        <li>Ask: "What impact do I want to have?" not "What more can I achieve?"</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Schedule quarterly "purpose check-ins" to ensure work aligns with impact goals
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 2 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">2</div>
+                    <div class="principle-title">EVOLVE FROM DOER TO LEADER</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Sustainable success requires shifting from control to influence.</p>
+                    
+                    <h4>The Three Stages:</h4>
+                    <ul>
+                        <li><strong>DOER:</strong> Master the craft, execute deals, do the work</li>
+                        <li><strong>MANAGER:</strong> Build systems, oversee teams, delegate execution</li>
+                        <li><strong>LEADER:</strong> Shape culture, vision, values—create environment where excellence emerges</li>
+                    </ul>
+                    
+                    <h4>Harris's Evolution:</h4>
+                    <p>Started as dealmaker at Apollo, evolved to building cultures at 26North.</p>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Identify which stage you're in (most leaders get stuck at Manager)</li>
+                        <li>Leader stage = asking "What does our culture stand for?"</li>
+                        <li>Culture scales results faster than any strategic plan</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> List 3 decisions you made this week. Which stage was each from? Shift more to Leader.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 3 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">3</div>
+                    <div class="principle-title">PRACTICE SERVANT LEADERSHIP</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Empowering others' success creates exponential impact beyond individual capacity.</p>
+                    
+                    <h4>Harris's Approach:</h4>
+                    <ul>
+                        <li>"What drives me is impacting other people positively"</li>
+                        <li>To team: "I'll help you achieve personal financial success"</li>
+                        <li>From team: "Your job is to help us win"</li>
+                    </ul>
+                    
+                    <h4>The Multiplier Effect:</h4>
+                    <ul>
+                        <li>Servant leaders develop leaders, not followers</li>
+                        <li>Empowerment breeds ownership and accountability</li>
+                        <li>People perform at highest levels when leader invests in their growth</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Replace "How can they help me?" with "How can I help them succeed?"</li>
+                        <li>Measure your success by your team's growth, not just results</li>
+                        <li>Make others' development a KPI, not just a nice-to-have</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> This week, ask each direct report: "What's one thing I can do to help you succeed?"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 4 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">4</div>
+                    <div class="principle-title">ALIGN INCENTIVES WITH OUTCOMES</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>What you pay for is what you get—compensation reveals organizational values.</p>
+                    
+                    <h4>26North's Model:</h4>
+                    <ul>
+                        <li>Talent takes less cash, bets on entrepreneurial upside</li>
+                        <li>Compensation tied to alpha generation, not management fees</li>
+                        <li>Individuals/teams do better financially but must align collectively</li>
+                        <li>"If we don't align, we all lose"</li>
+                    </ul>
+                    
+                    <h4>Why It Works:</h4>
+                    <ul>
+                        <li>Public firms optimize for predictable management fees</li>
+                        <li>Private structure allows pure focus on performance/returns</li>
+                        <li>Ownership mentality produces higher creativity and accountability</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Audit current incentives: Do they reward activity or outcomes?</li>
+                        <li>Ensure team incentives align with organizational goals</li>
+                        <li>Make sure individual success requires collective success</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Review your team's incentives this quarter. Do they drive the behavior you want?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 5 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">5</div>
+                    <div class="principle-title">HIRE FOR RESILIENCE</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>When everyone is smart, grit and adversity navigation separate winners.</p>
+                    
+                    <h4>Harris's Hiring Criteria:</h4>
+                    <ol>
+                        <li>Excellence in craft</li>
+                        <li>Mission-driven mindset</li>
+                        <li>Positive impact orientation</li>
+                        <li>"Willing to bring it" (intensity/commitment)</li>
+                    </ol>
+                    
+                    <h4>The Adversity Advantage:</h4>
+                    <ul>
+                        <li>"People who've gone through challenge early in life generally do better"</li>
+                        <li>Wrestling taught Harris: physical/mental toughness, picking yourself up after losses</li>
+                        <li>Resilience = ability to face setbacks, refocus on positives, get back in arena</li>
+                    </ul>
+                    
+                    <h4>Cultural Fit > Raw Talent:</h4>
+                    <ul>
+                        <li>Turned down highly competent people wrong for community</li>
+                        <li>"Smart people exist on both sides of you—ability to dig through tough situations sets you apart"</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Interview for resilience stories, not just accomplishments</li>
+                        <li>Ask: "Tell me about a time you failed and what you did next"</li>
+                        <li>Hire people you want to be around, not just people good at jobs</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Add "resilience assessment" to your next hiring process
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 6 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">6</div>
+                    <div class="principle-title">MANAGE YOURSELF OUT OF EVERY JOB</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Build systems and develop people so organization thrives without constant involvement.</p>
+                    
+                    <h4>Harris's Approach:</h4>
+                    <ul>
+                        <li>At 26North: CEO + Investment Committee Chair, but increasingly develops others</li>
+                        <li>Sports: Hire great GM, coach, CEO/president—then delegate</li>
+                        <li>"In every role, I've tried to manage myself out of the job"</li>
+                    </ul>
+                    
+                    <h4>Why It Matters:</h4>
+                    <ul>
+                        <li>Only way to scale across $30B asset manager + largest sports portfolio</li>
+                        <li>Leaders who can't let go create organizational bottlenecks</li>
+                        <li>Building leadership capacity in others is true leadership</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>For each responsibility, ask: "Who could do this in 6 months?"</li>
+                        <li>Develop successors for your current role</li>
+                        <li>Your goal: make yourself unnecessary in current capacity</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Identify one responsibility to delegate this month and begin training your replacement
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 7 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">7</div>
+                    <div class="principle-title">PROTECT YOUR FOCUS</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Focus is a leader's scarcest resource—design calendar around mission, not inbox.</p>
+                    
+                    <h4>Harris's Priority Hierarchy:</h4>
+                    <ol>
+                        <li><strong>Health:</strong> "If you're not healthy, you're not good to anyone"</li>
+                        <li><strong>Family:</strong> "Raising great human beings is how you impact the world"</li>
+                        <li><strong>Business:</strong> Through intentional time management</li>
+                    </ol>
+                    
+                    <h4>The Three Intentional Questions:</h4>
+                    <ul>
+                        <li>Who do I put around me?</li>
+                        <li>Which decisions require my involvement?</li>
+                        <li>What issues do I focus on?</li>
+                    </ul>
+                    
+                    <p><strong>Master issue-spotting and delegation</strong> to scale effectively.</p>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Block calendar for health/family FIRST, then business</li>
+                        <li>Audit last week: how much time on strategic vs. tactical?</li>
+                        <li>Protect time for strategic thinking—it's your highest value activity</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Block 2 hours this week for "strategic thinking only"—no meetings, no email
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 8 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">8</div>
+                    <div class="principle-title">BUILD COMMUNITY, NOT JUST TEAMS</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Emotional connection compounds brand equity faster than financial engineering.</p>
+                    
+                    <h4>Sports as Model:</h4>
+                    <ul>
+                        <li>Commanders' NFC Championship: entire DC area celebrated regardless of economics, race, religion</li>
+                        <li>"Sports is a community" in a world where internet/COVID broke down connection</li>
+                        <li>Creates belonging in divided, polarized times</li>
+                    </ul>
+                    
+                    <h4>Business Application:</h4>
+                    <ul>
+                        <li>People want to belong to something meaningful</li>
+                        <li>Community creates loyalty that transactions can't buy</li>
+                        <li>Mission-driven organizations generate emotional equity = sustainable advantage</li>
+                    </ul>
+                    
+                    <h4>Harris's Standard:</h4>
+                    <ul>
+                        <li>Hire people who are competent AND people want to be around</li>
+                        <li>"We're not for everyone—you've got to really want to be part of this"</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Do team members feel they belong to community or just work at company?</li>
+                        <li>Create shared experiences beyond work tasks</li>
+                        <li>Build culture where people choose to be, not just paid to be</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Create one "community-building" activity this month (not team-building—community-building)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 9 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">9</div>
+                    <div class="principle-title">PRACTICE STEWARDSHIP OVER OWNERSHIP</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Long-term value comes from doing right by all stakeholders.</p>
+                    
+                    <h4>Harris's Sports Philosophy:</h4>
+                    <ul>
+                        <li>"I consider teams being owned by the city, I'm a steward for the cities"</li>
+                        <li>Invests capital, takes risk, but fundamental role is stewardship</li>
+                        <li>"If you do what's right for the city, you end up in a good place"</li>
+                    </ul>
+                    
+                    <h4>Commanders Stadium Example:</h4>
+                    <ul>
+                        <li>$2.7B investment (largest in Washington history)</li>
+                        <li>Four neighborhoods, affordable housing, job creation, massive ROI for city</li>
+                        <li>Community support was explosive when vision aligned with their values</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Replace "What can I extract?" with "What can I contribute?"</li>
+                        <li>Stakeholder value > shareholder value in long run</li>
+                        <li>Stewardship mindset changes decision time horizons</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> List your key stakeholders. Rate how well you're serving each. Pick one to improve this quarter.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 10 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">10</div>
+                    <div class="principle-title">INVEST IN THE UNDERVALUED</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>First-mover advantage in undervalued markets creates asymmetric returns.</p>
+                    
+                    <h4>Harris's Women's Sports Bet:</h4>
+                    <ul>
+                        <li>"We're at an existential moment in women's sports"</li>
+                        <li>WNBA viewership at 60% of NBA levels (Caitlin Clark effect)</li>
+                        <li>Economic opportunity + equity responsibility</li>
+                        <li>Investing in flag football (Olympic sport, 50%+ female participation)</li>
+                    </ul>
+                    
+                    <h4>The Role Model Effect:</h4>
+                    <ul>
+                        <li>Wrestling role models "changed my life"</li>
+                        <li>"We need to create that for girls and for women"</li>
+                        <li>Role models create generational talent pipelines</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Where are the undervalued opportunities in your market?</li>
+                        <li>What segments are growing but underinvested?</li>
+                        <li>Social responsibility + business opportunity often align</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Identify one undervalued opportunity in your business and create 90-day exploration plan
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 11 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">11</div>
+                    <div class="principle-title">COMPOUND EARLY, HARVEST LATER</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>The 15-30 age window sets lifetime trajectory through intentional narrative-building.</p>
+                    
+                    <h4>Harris's Advice:</h4>
+                    <ul>
+                        <li>"When you're 15-30, you're building your narrative"</li>
+                        <li>"If you want to play hard, make sure you work hard too"</li>
+                        <li>"If you do good job in those 15 years, the ROI's for next 50 years"</li>
+                    </ul>
+                    
+                    <h4>Career Building Blocks:</h4>
+                    <ul>
+                        <li><strong>Trust your gut:</strong> Follow what genuinely energizes you</li>
+                        <li><strong>Seek challenge:</strong> Go for smartest people where you'll be most challenged</li>
+                        <li><strong>Volume + focus:</strong> Excellence requires lots of practice in focused area</li>
+                        <li><strong>Choose partners wisely:</strong> Surround yourself with people you like and respect</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Mentor younger team members on long-term thinking</li>
+                        <li>Share your own narrative-building stories</li>
+                        <li>Help them see connection between current work and future opportunity</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Mentor one emerging leader this quarter on their 15-year career narrative
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principle 12 -->
+            <div class="principle-card">
+                <div class="principle-header">
+                    <div class="principle-number">12</div>
+                    <div class="principle-title">WORK FROM FULFILLMENT</div>
+                </div>
+                
+                <div class="principle-subtitle">The Principle:</div>
+                <div class="principle-content">
+                    <p>Work aligned with purpose creates energy; fulfillment makes you better in all life domains.</p>
+                    
+                    <h4>Harris's Controversial Truth:</h4>
+                    <ul>
+                        <li>Lifetime of hearing: "You work too hard. Why do this?"</li>
+                        <li>Response: "Because I want to. I like to work hard."</li>
+                        <li>"I'm better father, husband, person because I'm fulfilled when building something"</li>
+                    </ul>
+                    
+                    <h4>The Fulfillment Paradox:</h4>
+                    <ul>
+                        <li>Work creates energy when aligned with purpose (versus depleting it)</li>
+                        <li>Being fulfilled at work makes you better at home</li>
+                        <li>People who love what they do don't need to be motivated</li>
+                    </ul>
+                    
+                    <h4>Self-Selection Philosophy:</h4>
+                    <ul>
+                        <li>"We're not for everyone. You've got to really want to do this"</li>
+                        <li>Athletes put "heart and soul" into it—same required for 26North</li>
+                        <li>"If you want that, great. Come be part of it if you've got the goods"</li>
+                    </ul>
+                    
+                    <h4>Application for Your Team:</h4>
+                    <ul>
+                        <li>Don't apologize for high standards or intensity</li>
+                        <li>Help people find work that fulfills them (even if it's elsewhere)</li>
+                        <li>Build culture where commitment is celebrated, not questioned</li>
+                    </ul>
+                    
+                    <div class="action-step">
+                        <strong>Action Step:</strong> Assess your own fulfillment (1-10). If below 7, identify what needs to change.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Harris Winning Formula -->
+        <div class="section" style="background: #f8f9fa;">
+            <div class="section-header">
+                <h2>THE HARRIS WINNING FORMULA</h2>
+            </div>
+            
+            <div class="framework-box">
+                <h4>THE FOUNDATION</h4>
+                <p>"Win with the best team on the field by having the best team off the field."</p>
+                <p>Excellence in visible performance requires excellence in invisible preparation. <strong>Culture determines capability.</strong></p>
+            </div>
+
+            <div class="framework-box">
+                <h4>THE VALUE EXCHANGE</h4>
+                <ul>
+                    <li><strong>Leader to Team:</strong> "I'll help you achieve personal financial success"</li>
+                    <li><strong>Team to Leader:</strong> "Your job is to help us win"</li>
+                    <li><strong>Reality:</strong> Neither succeeds without the other—alignment creates mutual accountability</li>
+                </ul>
+            </div>
+
+            <div class="framework-box">
+                <h4>WINNING DEFINED</h4>
+                <p><strong>In Sports:</strong></p>
+                <ul>
+                    <li>Winning titles</li>
+                    <li>Creating fan happiness</li>
+                </ul>
+                
+                <p><strong>In Business:</strong></p>
+                <ul>
+                    <li>EBITDA, cash flow, stock price</li>
+                    <li>Stakeholder value creation</li>
+                </ul>
+                
+                <p><strong>Universal Truth:</strong></p>
+                <ul>
+                    <li>Excellence requires obsessive commitment</li>
+                    <li>Not for everyone—requires explicit desire</li>
+                    <li>Must "bring it" every day with heart and soul</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Implementation Framework -->
+        <div class="section" id="implementation">
+            <div class="section-header">
+                <h2>IMPLEMENTATION FRAMEWORK</h2>
+            </div>
+
+            <div class="phase-box">
+                <div class="phase-title">PHASE 1: ASSESS (Week 1-2)</div>
+                
+                <h4>Individual Assessment:</h4>
+                <ul>
+                    <li>Which leadership stage am I in? (Doer/Manager/Leader)</li>
+                    <li>What's my fulfillment score? (1-10)</li>
+                    <li>Where do I spend my time? (Strategic vs. Tactical)</li>
+                </ul>
+                
+                <h4>Team Assessment:</h4>
+                <ul>
+                    <li>Do we have culture of excellence or culture of compliance?</li>
+                    <li>Are incentives aligned with desired outcomes?</li>
+                    <li>Do people belong to community or just work here?</li>
+                </ul>
+                
+                <h4>Organizational Assessment:</h4>
+                <ul>
+                    <li>Are we building for next quarter or next decade?</li>
+                    <li>Do we hire for resilience or just credentials?</li>
+                    <li>Are we stewards or just owners?</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <div class="phase-title">PHASE 2: PRIORITIZE (Week 3)</div>
+                
+                <h4>Choose Your Top 3 Principles to Focus On:</h4>
+                <p>Based on your assessments, select 3 principles that would create most impact:</p>
+                
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div>
+                            <strong>Principle #___:</strong> ___________________________<br>
+                            • Current state:<br>
+                            • Desired state:<br>
+                            • Gap to close:
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div>
+                            <strong>Principle #___:</strong> ___________________________<br>
+                            • Current state:<br>
+                            • Desired state:<br>
+                            • Gap to close:
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div>
+                            <strong>Principle #___:</strong> ___________________________<br>
+                            • Current state:<br>
+                            • Desired state:<br>
+                            • Gap to close:
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-box">
+                <div class="phase-title">PHASE 3: IMPLEMENT (Week 4-12)</div>
+                
+                <h4>30-Day Sprints:</h4>
+                
+                <p><strong>Sprint 1 (Days 1-30): Principle #1</strong></p>
+                <ul>
+                    <li>Week 1: Education (share principle with team)</li>
+                    <li>Week 2: Experiment (try new approaches)</li>
+                    <li>Week 3: Evaluate (what's working?)</li>
+                    <li>Week 4: Embed (make it permanent)</li>
+                </ul>
+                
+                <p><strong>Sprint 2 (Days 31-60): Principle #2</strong></p>
+                <ul>
+                    <li>Repeat process</li>
+                </ul>
+                
+                <p><strong>Sprint 3 (Days 61-90): Principle #3</strong></p>
+                <ul>
+                    <li>Repeat process</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <div class="phase-title">PHASE 4: SUSTAIN (Ongoing)</div>
+                
+                <h4>Monthly Rhythm:</h4>
+                <ul>
+                    <li>Week 1: Review progress on all 3 principles</li>
+                    <li>Week 2: Team discussion on one principle (rotate)</li>
+                    <li>Week 3: Individual coaching on application</li>
+                    <li>Week 4: Celebrate wins, adjust approach</li>
+                </ul>
+                
+                <h4>Quarterly Rhythm:</h4>
+                <ul>
+                    <li>Reassess: Are these still the right 3 principles?</li>
+                    <li>Add one new principle if original 3 are embedded</li>
+                    <li>Share success stories across organization</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Team Discussion Guide -->
+        <div class="section" style="background: #f8f9fa;">
+            <div class="section-header">
+                <h2>TEAM DISCUSSION GUIDE</h2>
+            </div>
+            
+            <div class="framework-box">
+                <h4>FACILITATION QUESTIONS</h4>
+                
+                <p><strong>Opening (10 min):</strong></p>
+                <ul>
+                    <li>"Which principle resonates most with you? Why?"</li>
+                    <li>"Which principle challenges you most? Why?"</li>
+                </ul>
+                
+                <p><strong>Deep Dive (30 min):</strong></p>
+                <ul>
+                    <li>"What would change if we fully lived [Principle X]?"</li>
+                    <li>"What's one thing preventing us from applying this?"</li>
+                    <li>"Who on our team exemplifies this principle?"</li>
+                </ul>
+                
+                <p><strong>Application (15 min):</strong></p>
+                <ul>
+                    <li>"What's one action we can take this week?"</li>
+                    <li>"How will we know we're making progress?"</li>
+                    <li>"Who's accountable for driving this?"</li>
+                </ul>
+                
+                <p><strong>Closing (5 min):</strong></p>
+                <ul>
+                    <li>"What's your one takeaway?"</li>
+                    <li>"What's your one commitment?"</li>
+                </ul>
+            </div>
+
+            <div class="framework-box">
+                <h4>CASE STUDY APPROACH</h4>
+                <p>Use Harris's examples as case studies:</p>
+                <ul>
+                    <li><strong>26North's founding:</strong> Reinvention, purpose, incentive alignment</li>
+                    <li><strong>Commanders' stadium:</strong> Stewardship, community, long-term thinking</li>
+                    <li><strong>Women's sports investment:</strong> Undervalued opportunities, role models</li>
+                    <li><strong>Wrestling background:</strong> Resilience, adversity as advantage</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Personal Application Worksheet -->
+        <div class="section">
+            <div class="section-header">
+                <h2>PERSONAL APPLICATION WORKSHEET</h2>
+                <h3>MY LEADERSHIP AUDIT</h3>
+            </div>
+
+            <div class="framework-box">
+                <h4>1. CURRENT STAGE:</h4>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div>Doer (I'm executing most tasks myself)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div>Manager (I'm overseeing team execution)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox"></div>
+                        <div>Leader (I'm shaping culture and developing leaders)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="framework-box">
+                <h4>2. TIME ALLOCATION (Last Week):</h4>
+                <ul>
+                    <li>Strategic thinking: _____%</li>
+                    <li>Managing/coaching: _____%</li>
+                    <li>Executing tasks: _____%</li>
+                    <li>Administrative: _____%</li>
+                </ul>
+            </div>
+
+            <div class="framework-box">
+                <h4>3. CULTURE CHECK:</h4>
+                <p>On a scale of 1-10:</p>
+                <ul>
+                    <li>Our culture eats strategy for breakfast: ___</li>
+                    <li>People are fulfilled, not just busy: ___</li>
+                    <li>Incentives drive right behavior: ___</li>
+                    <li>We hire for resilience + fit: ___</li>
+                    <li>I've managed myself out of tasks: ___</li>
+                    <li>Community > transactions: ___</li>
+                    <li>We practice stewardship: ___</li>
+                </ul>
+            </div>
+
+            <div class="framework-box">
+                <h4>4. MY FOCUS AREAS:</h4>
+                <p><strong>What are my 3 highest-leverage activities?</strong></p>
+                <ol>
+                    <li>_________________________________</li>
+                    <li>_________________________________</li>
+                    <li>_________________________________</li>
+                </ol>
+                
+                <p><strong>What am I doing that someone else could do?</strong></p>
+                <ol>
+                    <li>_________________________________</li>
+                    <li>_________________________________</li>
+                    <li>_________________________________</li>
+                </ol>
+            </div>
+
+            <div class="framework-box">
+                <h4>5. MY COMMITMENTS (Next 30 Days):</h4>
+                <ul>
+                    <li>One principle I'll embody: _______________________</li>
+                    <li>One habit I'll start: _______________________</li>
+                    <li>One person I'll develop: _______________________</li>
+                    <li>One decision I'll delegate: _______________________</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Recommended Resources -->
+        <div class="section" style="background: #f8f9fa;" id="resources">
+            <div class="section-header">
+                <h2>RECOMMENDED RESOURCES</h2>
+            </div>
+
+            <div class="framework-box">
+                <h4>Primary Source</h4>
+                <ul>
+                    <li><strong>Podcast:</strong> "Inside the Strategy Room" - Episode 265: The Josh Harris Playbook</li>
+                    <li><strong>Published:</strong> June 2025, McKinsey & Company</li>
+                    <li><strong>Link:</strong> [Insert link to podcast/article]</li>
+                </ul>
+            </div>
+
+            <div class="framework-box">
+                <h4>Complementary Reading</h4>
+                <ul>
+                    <li><strong>On Culture:</strong> "The Culture Code" by Daniel Coyle</li>
+                    <li><strong>On Resilience:</strong> "Grit" by Angela Duckworth</li>
+                    <li><strong>On Servant Leadership:</strong> "Leaders Eat Last" by Simon Sinek</li>
+                    <li><strong>On Stewardship:</strong> "Conscious Capitalism" by John Mackey</li>
+                    <li><strong>On Purpose:</strong> "Start With Why" by Simon Sinek</li>
+                </ul>
+            </div>
+
+            <div class="framework-box">
+                <h4>Discussion Topics for Team</h4>
+                <ul>
+                    <li>What does "culture eats strategy" mean in our context?</li>
+                    <li>How do we define "bringing it" on our team?</li>
+                    <li>Who are we as stewards? What's our community impact?</li>
+                    <li>What's our equivalent of Harris's "age 55 reinvention"?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Key Quotes -->
+        <div class="section">
+            <div class="section-header">
+                <h2>KEY QUOTES FOR REFLECTION</h2>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    Culture and people eat strategy for breakfast, particularly in the investment world and in sports.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    I'm a servant leader. What drives me is impacting other people positively.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    Win with the best team on the field by having the best team off the field.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    In every role, I've tried to manage myself out of the job.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    People who have gone through some challenge early in their life generally do better.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    If you do what's right for the city, you end up in a good place.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    There's going to be very smart people on both sides of you—it's your ability to dig down and get through tough situations that will set you apart.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    I'm a better father, husband, person because I'm fulfilled when building something.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    If you want to be really good at it, you're going to have to do a lot of it and be very focused.
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">
+                    We're not for everyone. You've got to really want to do this.
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section" style="background: #f8f9fa;">
+            <div class="section-header">
+                <h2>SUMMARY: THE META-INSIGHT</h2>
+            </div>
+
+            <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 30px;">
+                Harris's success across finance and sports reveals that <strong>excellence is portable when built on culture, people, and values</strong> rather than industry-specific tactics.
+            </p>
+
+            <div class="framework-box">
+                <h4>THE SIMPLE PLAYBOOK (HARD TO EXECUTE):</h4>
+                <ol>
+                    <li><strong>Culture First:</strong> People + values > strategy</li>
+                    <li><strong>Serve to Lead:</strong> Impact others to multiply impact</li>
+                    <li><strong>Align Everything:</strong> Incentives + goals + values</li>
+                    <li><strong>Build Resilience:</strong> Adversity creates advantage</li>
+                    <li><strong>Scale Through Others:</strong> Manage yourself out</li>
+                    <li><strong>Protect Focus:</strong> Health + family + strategic thinking</li>
+                    <li><strong>Create Community:</strong> Belonging > transactions</li>
+                    <li><strong>Practice Stewardship:</strong> Long-term > short-term</li>
+                    <li><strong>Find Undervalued:</strong> See what others miss</li>
+                    <li><strong>Compound Early:</strong> 15-30 sets 50-year trajectory</li>
+                    <li><strong>Work From Joy:</strong> Fulfillment fuels excellence</li>
+                    <li><strong>Demand Excellence:</strong> High standards, no apologies</li>
+                </ol>
+            </div>
+
+            <div class="framework-box">
+                <h4>THE ULTIMATE COMPETITIVE ADVANTAGE</h4>
+                <p>Building self-sustaining cultures where purpose-driven people accomplish extraordinary things together.</p>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="section">
+            <div class="section-header">
+                <h2>NEXT STEPS</h2>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div>Read through all 12 principles</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div>Complete Personal Leadership Audit</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div>Identify top 3 principles to focus on</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div>Schedule team discussion (use Discussion Guide)</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div>Implement Phase 1: Assess (Week 1-2)</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div>Begin 30-day Sprint on Principle #1</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div>Share learnings
